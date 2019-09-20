@@ -1,0 +1,44 @@
+
+<div class="container">
+<br>
+<h3 class="align-center"> <%= link_to "Catalogs List" , main_abc_path%> </h3>
+<br>
+<%= link_to('' , { :action => 'main' }) %>
+
+<h4> <%= link_to "Catalog Create", new_catalog_path%> </h4>
+
+
+<table class="table">
+<thead class="thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+    <th> Edit </th>
+    <th> Show </th>
+    <th> Delete </th>
+  </tr>
+</thead>
+<tbody>
+<% @catalogs.each do |catalog| %>
+  <tr>
+    <td> <%= catalog.name %> </td>
+    <td> <%= catalog.ctype %> </td>
+    <td> <%= catalog.created_at %> </td>
+    <td> <%= catalog.updated_at %> </td>
+    <td> <%= link_to 'Edit', edit_catalog_path(catalog)%> </td>
+    
+    <td> <%= link_to 'Show', catalog_path(catalog)%>  </td>
+   
+    <td> <%= link_to 'Delete', catalog_path(catalog),
+    method: :delete, data: {confirm: 'Are you sure?'}
+    %> </td>
+   
+  </tr>
+  <% end -%>
+</tbody>
+</table>   
+</div>
+
+

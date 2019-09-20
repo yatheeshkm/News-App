@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+catalogs = [{name: "Bollywood", ctype: "gallery"},
+ {name: "Tollywood", ctype: "gallery"},
+ {name: "sandlywood", ctype: "gallery"},
+ {name: "National", ctype: "poll"},
+ {name: "State-wise", ctype: "poll"}
+]
+catalogs.each do |catalog|
+
+    Catalog.create!(catalog)
+
+    #Catalog.create!(catalogs)
+end
