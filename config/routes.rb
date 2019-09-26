@@ -5,12 +5,33 @@ Rails.application.routes.draw do
   get 'catalogs/main' => "catalogs#main", :as => 'main_abc'
 
   resources :catalogs do
-    resources :polls 
-    resources :galleries
-    resources :articles
+    resources :polls, :galleries, :articles do
+      resources :comments, only: [:index, :new, :create]
+    end
 
   end
-
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+
+=begin
+member do
+        # Thumbnail Routes
+        get :new_comment
+        post :comments
+
+        # Medias Routes
+        get :new_media
+        post :medias
+        
+        # Thumbnail Routes
+        get :new_thumbnail
+        post :thumbnails
+      end
+
+      collection do
+        get :all_comments
+        get :all_medias
+        get :all_thumbnails
+      end
+=end

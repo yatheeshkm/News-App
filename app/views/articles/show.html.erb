@@ -1,0 +1,16 @@
+
+<div class="container">
+  <%= link_to  "Back", catalog_articles_path %><br/><br/>
+  <p><%= @article.title.titleize %> | 
+  <%= @article.short_description %> | 
+  <%= @article.long_description %> </p>    
+  
+  <hr/>
+  <%= link_to  "Create Comments", new_catalog_article_comment_path(@catalog, @article) %>
+  <br/>
+  <p><b> Comments </b></p>
+  <% @article.comments.each do |comment| %>
+    <p><%= comment.comment%></p><br/>
+  <% end -%>
+  
+</div>

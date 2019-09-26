@@ -1,1 +1,22 @@
-<h1> hello </h1>
+<div class="container">
+  <h1> All Articles </h1>
+  <h2> <%= link_to 'Create New Articles', new_catalog_article_path(@catalog,@article) %> </h2>
+  <div>
+    <% @articles.each  do |a| %>
+      <p> Title : <%= a.title %> </p> <br />
+      <p> Short Description : <%= a.short_description %> </p> <br />
+      <p> Long Description : <%= a.long_description %> </p> <br />
+      <p> Status : <%= a.status %> </p> <br />
+      <button class="primary btn-success"> <%= link_to  "edit", edit_catalog_article_path(@catalog,a) %> </button>
+      <button class="primary btn-danger"> <%= link_to 'delete', catalog_article_path(@catalog,a),
+      method: :delete, data:{ confirm: 'are you sure ?'} %> </button>
+      <hr>
+      <%= link_to  "Create Comment", new_catalog_article_comment_path(@catalog, a) %>
+      <hr>
+      <h3> Comments </h3>
+      <% a.comments.each do |comment| %>
+        <p><%= comment.comment %></p><br>
+      <% end-%>
+    <% end %>
+  </div>
+</div>

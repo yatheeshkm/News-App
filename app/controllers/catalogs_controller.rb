@@ -11,13 +11,13 @@ class CatalogsController < ApplicationController
     @catalog = Catalog.new
   end
 
-  def show
-    @catalog = Catalog.find(params[:id])
-    @items = []
-    @items = @catalog.articles if @catalog.ctype == 'article'
-    @items = @catalog.galleries if @catalog.ctype == 'gallery'
-    @items = @catalog.polls if @catalog.ctype == 'poll'    
-  end
+  # def show
+  #   @catalog = Catalog.find(params[:id])
+  # conf  @items = []
+  #   @items = @catalog.articles if @catalog.ctype == 'article'
+  #   @items = @catalog.galleries if @catalog.ctype == 'gallery'
+  #   @items = @catalog.polls if @catalog.ctype == 'poll'    
+  # end
 
   def create 
     @catalog = Catalog.new(catalog_params)

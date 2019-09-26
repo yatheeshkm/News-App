@@ -1,0 +1,13 @@
+<div class="container">
+
+<%= form_for [@catalog, @article] do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Short_Description : <%= f.text_field :short_description %><br />
+  Long_Description : <%= f.text_field :long_description %><br />
+  Status : <%= f.text_field :status %><br /> 
+  
+  <%= f.submit "Update " %>
+<% end %>
+<%= link_to 'Back', catalog_articles_path(@catalog) %>
+
+</div>

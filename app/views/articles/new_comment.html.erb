@@ -1,0 +1,6 @@
+<%#= form_for(comments_catalog_article_path(@catalog, @article)) do |f| %>
+<%= form_tag(path: "/catalogs/#{@catalog.id}/articles/#{@article.id}/comments", method: :post, remote: true) do %>
+  <%= label_tag(:comment) %><br/>
+  <%= text_area_tag(:comment) %>
+  <%= submit_tag "Create" %>
+<% end %>

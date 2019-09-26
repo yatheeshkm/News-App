@@ -1,3 +1,13 @@
 <div class="container">
-    <h2><%= @catalog.name.titleize %></h2>
+    <h3><%= @catalog.name.titleize %> | <%= @catalog.ctype %></h3>    
+    <%
+=begin%>
+ <%= link_to 'Back', catalogs_path %> 
+<%
+=end%>
+<%= render "shared/back" %>
+
+<%= link_to "Create #{@catalog.ctype.titleize}", new_catalog_article_path(@catalog) %> 
+ 
+
 </div>           

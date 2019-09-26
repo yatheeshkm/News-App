@@ -1,0 +1,5 @@
+<%= form_for([@catalog, @commentable, @comment]) do |f| %>
+    <%= f.label(:comment) %><br/>
+    <%= f.text_area(:comment) %>
+    <%= f.submit("Create")%>
+<% end %>

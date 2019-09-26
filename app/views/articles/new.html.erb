@@ -1,0 +1,27 @@
+<div class="container">
+<br>
+<h1> Creation of New Article </h1>
+<% flash.each do |message_type, success| %>
+ <div class="alert alert-<%= message_type%>"> <%= success %> </div>
+<% end %>
+
+
+<%= form_for :article, url: catalog_articles_path,local: true  do |f| %>
+  Title: <%= f.text_field :title  ,:required => true%><br />
+  Short_description : <%= f.text_field :short_description,:required => true%><br />
+  Long_description : <%= f.text_area :long_description,  size: "colsxrols",  :required => true %> <br />
+  Status: <%= f.text_field :status  ,:required => true%><br />
+  <%
+=begin%>
+ Date : <%= datetime_select :published_at, :birth_date %> <br /> 
+<%
+=end%>
+  <br/>
+
+  <%= f.submit "Save " %>
+<% end %>
+
+
+<%= link_to 'Back', catalog_articles_path %>
+
+</div>
